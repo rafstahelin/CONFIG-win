@@ -11,7 +11,7 @@ Write-Host "Testing if Distributed really breaks Nunchaku..." -ForegroundColor Y
 
 # Step 1: Verify Nunchaku works in source
 Write-Host "`n1. Testing Nunchaku in source installation..." -ForegroundColor Green
-$nunchakuTest = & "$ComfyUIPath\python_embeded\python.exe" -c "import nunchaku; print(f'Nunchaku {nunchaku.__version__} OK')" 2>&1
+$nunchakuTest = & "$ComfyUIPath\python_embeded\python.exe" -c "import nunchaku; print('Nunchaku ' + nunchaku.__version__ + ' OK')" 2>&1
 if ($LASTEXITCODE -eq 0) {
     Write-Host "✓ Nunchaku working: $nunchakuTest" -ForegroundColor Green
 } else {
@@ -61,7 +61,7 @@ $numpyVersionAfter = & "$TestPath\python_embeded\python.exe" -c "import numpy; p
 Write-Host "Numpy after: $numpyVersionAfter" -ForegroundColor Cyan
 
 # Test Nunchaku
-$nunchakuTestAfter = & "$TestPath\python_embeded\python.exe" -c "import nunchaku; print(f'Nunchaku {nunchaku.__version__} OK')" 2>&1
+$nunchakuTestAfter = & "$TestPath\python_embeded\python.exe" -c "import nunchaku; print('Nunchaku ' + nunchaku.__version__ + ' OK')" 2>&1
 if ($LASTEXITCODE -eq 0) {
     Write-Host "✓ Nunchaku still working: $nunchakuTestAfter" -ForegroundColor Green
     Write-Host "`n=== RESULT: NO CONFLICT DETECTED ===" -ForegroundColor Green
